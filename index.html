@@ -44,8 +44,42 @@
 
   <!-- ====================== Alert Banner ====================== -->
   <div class="alert-banner">
-    Delhivery does not require OTP or credentials for address confirmation. Our support team is reachable only via our website or app.
+  <div class="scrolling-text">
+    Delhivery does not require OTP or credentials for address confirmation. Our support team is reachable only via our website or app. &nbsp;|&nbsp;
+    Beware of fraudulent calls requesting payment or information. &nbsp;|&nbsp;
+    Contact support through our official channels only. &nbsp;|&nbsp;
+    Stay alert, stay safe! &nbsp;|&nbsp;
   </div>
+</div>
+
+<style>
+.alert-banner {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+  padding: 10px 0;
+  overflow: hidden; /* Hide overflowing text */
+  position: relative;
+  font-family: Arial, sans-serif;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%; /* Start from outside the right side */
+  animation: scroll-left 20s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+</style>
 
   <!-- ====================== Hero Section ====================== -->
   <main>
@@ -56,83 +90,107 @@
         <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
       </div>
 
-      <!-- Track Box (Tab Interface + OTP Flow) -->
-      <div class="track-box">
-        <div class="track-tabs">
-          <button class="tab active">Track order</button>
-          <button class="tab">Ship order</button>
+<!-- Track Box (Tab Interface + OTP Flow) -->
+<div class="track-box">
+  <div class="track-tabs">
+    <button class="tab active" data-tab="track">Track order</button>
+    <button class="tab" data-tab="ship">Ship order</button>
+  </div>
 
-        </div>
+  <div id="track-content" class="tab-content">
+    <h3><strong>Track</strong> your order through</h3>
+    <div class="track-methods">
+      <button class="method active">Mobile</button>
+      <button class="method">AWB</button>
+      <button class="method">Order Id</button>
+      <button class="method">LRN</button>
+    </div>
+    <input type="text" placeholder="Enter your mobile number" class="input-field" />
+    <button class="get-otp">Get OTP</button>
+  </div>
 
-        <h3><strong>Track</strong> your order through</h3>
+  <div id="ship-content" class="tab-content hidden">
+    <h3><strong>Ship</strong> personal courier</h3>
+    <div class="ship-tabs">
+      <button class="ship-type active" data-type="domestic">🏠 Domestic</button>
+      <button class="ship-type" data-type="international">✈️ International</button>
+    </div>
 
-        <div class="track-methods">
-          <button class="method active">Mobile</button>
-          <button class="method">AWB</button>
-          <button class="method">Order Id</button>
-          <button class="method">LRN</button>
-        </div>
-
-        <input type="text" placeholder="Enter your mobile number" class="input-field" />
-        <button class="get-otp">Get OTP</button>
-
-        <div class="track-footer">
-          <p>Live tracking updates & extra support on our App</p>
-          <div class="app-buttons">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="Download on the App Store" />
-          </div>
-        </div>
+    <!-- New Form with Pickup-Delivery Indicator -->
+    <div class="ship-form">
+      <div class="route-indicator">
+        <div class="circle pickup"></div>
+        <div class="dotted-line"></div>
+        <div class="circle delivery"></div>
       </div>
-
-      <!-- Ship Toggle Section (Track vs Ship Forms) -->
-      <div class="ship-toggle-container">
-        <div class="ship-tabs">
-          <button class="ship-tab active" onclick="switchTab('track')">Track order</button>
-          <button class="ship-tab" onclick="switchTab('ship')">Ship order</button>
-
-        </div>
-
-        <!-- Content for Track Order -->
-        <div class="ship-content" id="track">
-          <h2>Track order</h2>
-          <p>Tracking section goes here...</p>
-        </div>
-
-        <!-- Content for Ship Order -->
-        <div class="ship-content hidden" id="ship">
-          <h2><strong>Ship</strong> personal courier</h2>
-
-          <!-- Shipping Type Toggle -->
-          <div class="ship-type">
-            <button class="ship-type-btn active" onclick="toggleType(this)">📦 Domestic</button>
-            <button class="ship-type-btn" onclick="toggleType(this)">✈️ International</button>
-          </div>
-
-          <!-- Form Inputs for Pincode -->
-          <div class="form-group">
-            <label for="pickup-pin" class="input-icon">⬆</label>
-            <input type="text" id="pickup-pin" placeholder="Enter pickup pin code">
-          </div>
-
-          <div class="form-group">
-            <label for="delivery-pin" class="input-icon">📍</label>
-            <input type="text" id="delivery-pin" placeholder="Enter delivery pin code">
-          </div>
-
-          <button class="otp-btn">Get OTP & Ship Now</button>
-
-          <p class="business-link"><a href="#">Sign up to ship as a business here</a></p>
-
-          <p class="store-subtext">Live tracking updates & extra support on our App</p>
-
-          <div class="store-buttons">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
-          </div>
-        </div>
+      <div class="form-fields">
+        <input type="text" placeholder="Enter pickup pin code" class="input-field" />
+        <input type="text" placeholder="Enter delivery pin code" class="input-field" />
       </div>
-    </section>
+    </div>
+
+    <button class="get-otp">Get OTP & Ship Now</button>
+    <p><a href="#">Sign up to ship as a business here</a></p>
+  </div>
+
+  <div class="track-footer">
+    <p>Live tracking updates & extra support on our App</p>
+    <div class="app-buttons">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="Download on the App Store" />
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Script -->
+<script>
+  // Tab switching for Track and Ship
+  document.querySelectorAll('.track-tabs .tab').forEach(tabBtn => {
+    tabBtn.addEventListener('click', () => {
+      document.querySelectorAll('.track-tabs .tab').forEach(t => t.classList.remove('active'));
+      tabBtn.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+      const tabName = tabBtn.dataset.tab;
+      const content = document.getElementById(tabName + '-content');
+      if (content) content.classList.remove('hidden');
+    });
+  });
+
+  // Track method selection toggle
+  document.querySelectorAll('.track-methods .method').forEach(methodBtn => {
+    methodBtn.addEventListener('click', () => {
+      document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
+      methodBtn.classList.add('active');
+      const input = document.querySelector('#track-content .input-field');
+      switch (methodBtn.textContent.trim()) {
+        case 'Mobile':
+          input.placeholder = "Enter your mobile number";
+          break;
+        case 'AWB':
+          input.placeholder = "Enter your AWB number";
+          break;
+        case 'Order Id':
+          input.placeholder = "Enter your Order ID";
+          break;
+        case 'LRN':
+          input.placeholder = "Enter your LRN";
+          break;
+      }
+    });
+  });
+
+  // Ship type toggle
+  document.querySelectorAll('.ship-tabs .ship-type').forEach(shipBtn => {
+    shipBtn.addEventListener('click', () => {
+      document.querySelectorAll('.ship-tabs .ship-type').forEach(s => s.classList.remove('active'));
+      shipBtn.classList.add('active');
+    });
+  });
+</script>
+
+
 
     <!-- ====================== Services Section ====================== -->
     <section class="services">
@@ -261,7 +319,47 @@
       }
     });
 
+    
   </script>
+
+  <script>
+  const tabs = document.querySelectorAll(".tab");
+  const trackContent = document.getElementById("track-content");
+  const shipContent = document.getElementById("ship-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      if (tab.dataset.tab === "track") {
+        trackContent.classList.remove("hidden");
+        shipContent.classList.add("hidden");
+      } else {
+        shipContent.classList.remove("hidden");
+        trackContent.classList.add("hidden");
+      }
+    });
+  });
+
+
+  document.querySelectorAll('.ship-type').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.ship-type').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    // Optional: Change inputs or content based on the selected shipping type
+    const type = button.getAttribute('data-type');
+    if (type === 'international') {
+      // Handle international shipping logic
+    } else {
+      // Handle domestic shipping logic
+    }
+  });
+});
+
+</script>
+
 
 </body>
 </html>
