@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Metadata and External Links -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luggagers Replica</title>
+  
+  <!-- External CSS and Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+  
+  <!-- Inline Styles -->
+  <style>
+    /* Utility class to hide elements */
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header Section -->
+  <!-- ====================== Header Section ====================== -->
   <header class="header" id="header">
     <div class="logo">
       <img src="logo.png" alt="DELHIVERY Logo" width="120" />
@@ -31,23 +42,26 @@
     </div>
   </header>
 
-  <!-- Banner Alert -->
+  <!-- ====================== Alert Banner ====================== -->
   <div class="alert-banner">
     Delhivery does not require OTP or credentials for address confirmation. Our support team is reachable only via our website or app.
   </div>
 
-  <!-- Hero Section -->
+  <!-- ====================== Hero Section ====================== -->
   <main>
     <section class="hero">
+      <!-- Intro Text -->
       <div class="hero-box">
         <h1>We are India's largest fully integrated logistics services provider</h1>
         <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
       </div>
 
+      <!-- Track Box (Tab Interface + OTP Flow) -->
       <div class="track-box">
         <div class="track-tabs">
           <button class="tab active">Track order</button>
           <button class="tab">Ship order</button>
+
         </div>
 
         <h3><strong>Track</strong> your order through</h3>
@@ -70,51 +84,57 @@
           </div>
         </div>
       </div>
+
+      <!-- Ship Toggle Section (Track vs Ship Forms) -->
       <div class="ship-toggle-container">
-  <div class="ship-tabs">
-    <button class="ship-tab active" onclick="switchTab('ship')">Ship order</button>
-    <button class="ship-tab" onclick="switchTab('track')">Track order</button>
-  </div>
+        <div class="ship-tabs">
+          <button class="ship-tab active" onclick="switchTab('track')">Track order</button>
+          <button class="ship-tab" onclick="switchTab('ship')">Ship order</button>
 
-  <div class="ship-content" id="ship">
-    <h2><strong>Ship</strong> personal courier</h2>
+        </div>
 
-    <div class="ship-type">
-      <button class="ship-type-btn active" onclick="toggleType(this)">📦 Domestic</button>
-      <button class="ship-type-btn" onclick="toggleType(this)">✈️ International</button>
-    </div>
+        <!-- Content for Track Order -->
+        <div class="ship-content" id="track">
+          <h2>Track order</h2>
+          <p>Tracking section goes here...</p>
+        </div>
 
-    <div class="form-group">
-      <label for="pickup-pin" class="input-icon">⬆</label>
-      <input type="text" id="pickup-pin" placeholder="Enter pickup pin code">
-    </div>
+        <!-- Content for Ship Order -->
+        <div class="ship-content hidden" id="ship">
+          <h2><strong>Ship</strong> personal courier</h2>
 
-    <div class="form-group">
-      <label for="delivery-pin" class="input-icon">📍</label>
-      <input type="text" id="delivery-pin" placeholder="Enter delivery pin code">
-    </div>
+          <!-- Shipping Type Toggle -->
+          <div class="ship-type">
+            <button class="ship-type-btn active" onclick="toggleType(this)">📦 Domestic</button>
+            <button class="ship-type-btn" onclick="toggleType(this)">✈️ International</button>
+          </div>
 
-    <button class="otp-btn">Get OTP & Ship Now</button>
+          <!-- Form Inputs for Pincode -->
+          <div class="form-group">
+            <label for="pickup-pin" class="input-icon">⬆</label>
+            <input type="text" id="pickup-pin" placeholder="Enter pickup pin code">
+          </div>
 
-    <p class="business-link"><a href="#">Sign up to ship as a business here</a></p>
+          <div class="form-group">
+            <label for="delivery-pin" class="input-icon">📍</label>
+            <input type="text" id="delivery-pin" placeholder="Enter delivery pin code">
+          </div>
 
-    <p class="store-subtext">Live tracking updates & extra support on our App</p>
+          <button class="otp-btn">Get OTP & Ship Now</button>
 
-    <div class="store-buttons">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
-    </div>
-  </div>
+          <p class="business-link"><a href="#">Sign up to ship as a business here</a></p>
 
-  <div class="ship-content hidden" id="track">
-    <h2>Track order</h2>
-    <p>Tracking section goes here...</p>
-  </div>
-</div>
+          <p class="store-subtext">Live tracking updates & extra support on our App</p>
 
+          <div class="store-buttons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" />
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- ====================== Services Section ====================== -->
     <section class="services">
       <div class="vertical-line"></div>
       <h2 class="services-title">OUR SERVICES</h2>
@@ -122,6 +142,8 @@
         Our team will take your portfolio to the <br />
         next new level
       </p>
+
+      <!-- Icons for Different Services -->
       <div class="service-icons">
         <div class="service-item">
           <i>&#x1F4DC;</i>
@@ -142,13 +164,15 @@
     </section>
   </main>
 
-  <!-- Footer Section -->
+  <!-- ====================== Footer Section ====================== -->
   <footer class="footer">
     <div class="footer-content">
       <p>2025 3-HM. All Rights Reserved. 
         | <a href="PrivacyPolicy/PrivacyPolicy.html" class="footer-link">Privacy Policy</a> 
         | <a href="TermsOfService/TermsOfService.html" class="footer-link">Terms of Service</a>
       </p>
+
+      <!-- Social Media Links -->
       <div class="social-media">
         <a href="https://www.facebook.com" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -159,65 +183,85 @@
     </div>
   </footer>
 
+  <!-- ====================== JavaScript Section ====================== -->
   <script>
+    // Add 'visible' class to header after page load
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('header').classList.add('visible');
     });
   </script>
 
-
   <script>
-  // Tab Switching (Track order / Ship order)
-  document.querySelectorAll('.track-tabs .tab').forEach((tab) => {
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.track-tabs .tab').forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
+    // ================= Tab Switching (Track / Ship Orders) =================
+    function switchTab(tab) {
+      const tabs = document.querySelectorAll('.ship-tab');
+      const contents = document.querySelectorAll('.ship-content');
 
-  // Method Selection (Mobile, AWB, etc.)
-  document.querySelectorAll('.track-methods .method').forEach((btn) => {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
-      this.classList.add('active');
-      document.querySelector('.input-field').placeholder = `Enter your ${this.textContent.toLowerCase()}`;
-    });
-  });
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.add('hidden'));
 
-  // OTP Button Click
-  document.querySelector('.get-otp').addEventListener('click', function () {
-    const input = document.querySelector('.input-field');
-    const value = input.value.trim();
-    const activeMethod = document.querySelector('.track-methods .method.active').textContent;
+      document.querySelector(`.ship-tab[onclick*="${tab}"]`).classList.add('active');
+      document.getElementById(tab).classList.remove('hidden');
 
-    if (!value) {
-      alert(`Please enter your ${activeMethod.toLowerCase()}`);
-    } else {
-      alert(`OTP sent to ${value}`);
+      // Sync with top tabs
+      const trackTabs = document.querySelectorAll('.track-tabs .tab');
+      trackTabs.forEach(t => t.classList.remove('active'));
+      if (tab === 'track') trackTabs[0].classList.add('active');
+      else trackTabs[1].classList.add('active');
     }
-  });
 
+    // ================= Shipping Type Toggle (Domestic/International) =================
+    function toggleType(btn) {
+      document.querySelectorAll('.ship-type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
 
-  function switchTab(tab) {
-  const tabs = document.querySelectorAll('.ship-tab');
-  const contents = document.querySelectorAll('.ship-content');
+    // ================= Sync Top Track Tabs =================
+    document.querySelectorAll('.track-tabs .tab').forEach((tab, index) => {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.track-tabs .tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
 
-  tabs.forEach(t => t.classList.remove('active'));
-  contents.forEach(c => c.classList.add('hidden'));
+        const shipContentTrack = document.getElementById('track');
+        const shipContentShip = document.getElementById('ship');
 
-  document.querySelector(`.ship-tab[onclick*="${tab}"]`).classList.add('active');
-  document.getElementById(tab).classList.remove('hidden');
-}
+        if (index === 0) {
+          shipContentTrack.classList.remove('hidden');
+          shipContentShip.classList.add('hidden');
+          document.querySelectorAll('.ship-tab').forEach(t => t.classList.remove('active'));
+          document.querySelector('.ship-tab[onclick*="track"]').classList.add('active');
+        } else {
+          shipContentShip.classList.remove('hidden');
+          shipContentTrack.classList.add('hidden');
+          document.querySelectorAll('.ship-tab').forEach(t => t.classList.remove('active'));
+          document.querySelector('.ship-tab[onclick*="ship"]').classList.add('active');
+        }
+      });
+    });
 
-function toggleType(btn) {
-  document.querySelectorAll('.ship-type-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
+    // ================= Track Method Selection =================
+    document.querySelectorAll('.track-methods .method').forEach((btn) => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
+        this.classList.add('active');
+        document.querySelector('.input-field').placeholder = `Enter your ${this.textContent.toLowerCase()}`;
+      });
+    });
 
-</script>
+    // ================= OTP Button Handler =================
+    document.querySelector('.get-otp').addEventListener('click', function () {
+      const input = document.querySelector('.input-field');
+      const value = input.value.trim();
+      const activeMethod = document.querySelector('.track-methods .method.active').textContent;
 
+      if (!value) {
+        alert(`Please enter your ${activeMethod.toLowerCase()}`);
+      } else {
+        alert(`OTP sent to ${value}`);
+      }
+    });
 
-
+  </script>
 
 </body>
 </html>

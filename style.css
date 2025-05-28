@@ -2,7 +2,7 @@
   --primary-color: #f7ac54;
   --bg-color: #181818;
   --text-color: #ffffff;
-  --accent-color: #000;
+  --accent-color: #000000;
 }
 
 body {
@@ -11,6 +11,11 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 /* Header */
@@ -30,16 +35,13 @@ body {
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 .header.visible {
   transform: translateY(0);
   opacity: 1;
 }
-
 .logo img {
   height: 50px;
 }
-
 .nav ul {
   list-style: none;
   display: flex;
@@ -47,13 +49,11 @@ body {
   padding: 0;
   margin: 0;
 }
-
 .nav a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
 }
-
 .ship-now button {
   background-color: var(--text-color);
   color: var(--accent-color);
@@ -61,9 +61,10 @@ body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
-.ship-now button:hover {
+.ship-now button:hover,
+.ship-now button:focus-visible {
   background-color: var(--primary-color);
   color: #fff;
 }
@@ -84,26 +85,37 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   background: #1f1f1f;
   text-align: center;
-  padding: 20px;
-  animation: fadeIn 1s ease-in;
+  padding: 100px 20px 40px;
+  animation: fadeIn 1s ease-in both;
+  box-sizing: border-box;
 }
-
+.hero-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  gap: 20px;
+}
 .hero-box h1 {
   font-family: 'Merriweather', serif;
-  font-size: 42px;
+  font-size: clamp(28px, 6vw, 42px);
   padding: 20px;
   border: 1px solid white;
   display: inline-block;
   margin-bottom: 20px;
   transition: transform 0.3s;
 }
-.hero-box h1:hover {
+.hero-box h1:hover,
+.hero-box h1:focus-visible {
   transform: scale(1.03);
 }
-
 .tagline {
   color: var(--primary-color);
   font-size: 18px;
@@ -119,15 +131,13 @@ body {
   max-width: 400px;
   margin: 40px auto;
   box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-  animation: fadeIn 1.2s ease;
+  animation: fadeIn 1.2s ease both;
 }
-
 .track-tabs {
   display: flex;
   border-bottom: 1px solid #ccc;
   margin-bottom: 15px;
 }
-
 .track-tabs .tab {
   flex: 1;
   padding: 10px;
@@ -135,21 +145,22 @@ body {
   border: none;
   cursor: pointer;
   font-weight: bold;
-  color: #888;
-  transition: 0.3s;
+  color: #555;
+  transition: color 0.3s, border-bottom 0.3s;
 }
-
+.track-tabs .tab:hover,
+.track-tabs .tab:focus-visible {
+  color: var(--primary-color);
+}
 .track-tabs .tab.active {
   color: #000;
   border-bottom: 2px solid red;
 }
-
 .track-methods {
   display: flex;
   gap: 10px;
   margin: 15px 0;
 }
-
 .method {
   flex: 1;
   padding: 8px;
@@ -157,46 +168,52 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
-
-.method.active {
-  background: #000;
+.method:hover,
+.method:focus-visible {
+  background: var(--primary-color);
   color: #fff;
 }
-
+.method.active {
+  background: var(--accent-color);
+  color: #fff;
+}
 .input-field {
   width: 100%;
   padding: 10px;
   margin: 12px 0;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 14px;
 }
-
 .get-otp {
   width: 100%;
-  background: #000;
-  color: #fff;
+  background: var(--accent-color);
+  color: var(--text-color);
   padding: 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
-
+.get-otp:hover,
+.get-otp:focus-visible {
+  background: var(--primary-color);
+}
 .track-footer {
   font-size: 12px;
   color: #444;
   text-align: center;
   margin-top: 15px;
 }
-
 .app-buttons {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 10px;
 }
-
 .app-buttons img {
   height: 40px;
   cursor: pointer;
@@ -207,35 +224,34 @@ body {
   padding: 50px 20px;
   text-align: center;
   position: relative;
+  margin-top: 40px;
 }
-
 .services-title {
   font-size: 20px;
   color: var(--primary-color);
   margin-bottom: 10px;
 }
-
 .services-content {
   font-family: 'Merriweather', serif;
   font-size: 36px;
   margin-bottom: 30px;
 }
-
 .service-icons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
 }
-
 .service-item {
   max-width: 200px;
   padding: 20px;
   border-radius: 10px;
   background-color: #2c2c2c;
   transition: transform 0.3s;
+  cursor: default;
 }
-.service-item:hover {
+.service-item:hover,
+.service-item:focus-within {
   transform: translateY(-5px);
 }
 .service-item i {
@@ -262,16 +278,15 @@ body {
   padding: 20px;
   font-size: 14px;
 }
-
 .footer-link {
   color: inherit;
   text-decoration: none;
   margin: 0 8px;
 }
-.footer-link:hover {
+.footer-link:hover,
+.footer-link:focus-visible {
   text-decoration: underline;
 }
-
 .social-media {
   margin-top: 10px;
 }
@@ -280,42 +295,17 @@ body {
   margin: 0 10px;
   color: white;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
-.social-icon:hover {
+.social-icon:hover,
+.social-icon:focus-visible {
   color: var(--primary-color);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav ul {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .hero {
-    flex-direction: column;
-    padding: 30px 20px;
-  }
-
-  .hero-box h1 {
-    font-size: 32px;
-    padding: 20px;
-  }
-
-  .service-icons {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
+/* Ship Toggle Container and Tabs */
 .ship-toggle-container {
   max-width: 400px;
+  width: 100%;
   margin: 80px auto;
   background: #fff;
   color: #000;
@@ -324,141 +314,5 @@ body {
   font-family: Arial, sans-serif;
   box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
-
 .ship-tabs {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.ship-tab {
-  flex: 1;
-  background: none;
-  border: none;
-  font-size: 16px;
-  padding: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #888;
-  border-bottom: 3px solid transparent;
-  transition: 0.3s;
-}
-
-.ship-tab.active {
-  color: #000;
-  border-color: red;
-}
-
-.ship-content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.ship-content.hidden {
-  display: none;
-}
-
-.ship-type {
-  display: flex;
-  background: #eee;
-  padding: 6px;
-  border-radius: 30px;
-  gap: 6px;
-  justify-content: space-between;
-}
-
-.ship-type-btn {
-  flex: 1;
-  padding: 10px;
-  background: none;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.ship-type-btn.active {
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.form-group {
-  position: relative;
-}
-
-.input-icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #aaa;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px 12px 12px 35px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.otp-btn {
-  padding: 12px;
-  width: 100%;
-  background: #000;
-  color: #fff;
-  border: none;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.business-link {
-  font-size: 13px;
-  text-align: center;
-  color: red;
-}
-
-.business-link a {
-  color: red;
-  text-decoration: underline;
-}
-
-.store-subtext {
-  font-size: 12px;
-  text-align: center;
-  margin-top: 10px;
-  color: #444;
-}
-
-.store-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.store-buttons img {
-  height: 40px;
-  cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 500px) {
-  .ship-toggle-container {
-    margin: 40px 15px;
-    padding: 20px;
-  }
-
-  .store-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .store-buttons img {
-    height: 45px;
-    width: auto;
-  }
-}
+  disp
