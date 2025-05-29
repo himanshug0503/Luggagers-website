@@ -1,365 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Metadata and External Links -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luggagers Replica</title>
-  
-  <!-- External CSS and Fonts -->
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
-  
-  <!-- Inline Styles -->
   <style>
-    /* Utility class to hide elements */
-    .hidden {
-      display: none;
+    .hidden { display: none; }
+    .alert-banner {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      font-family: Arial, sans-serif;
+      border: 1px solid #f5c6cb;
+      border-radius: 5px;
+    }
+    .scrolling-text {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+      animation: scroll-left 20s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
   </style>
 </head>
 <body>
 
-  <!-- ====================== Header Section ====================== -->
-  <header class="header" id="header">
-    <div class="logo">
-      <img src="logo.png" alt="DELHIVERY Logo" width="120" />
-    </div>
-    <nav class="nav">
-      <ul>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Solutions</a></li>
-        <li><a href="#">Partner</a></li>
-        <li><a href="#">Company</a></li>
-        <li><a href="#">Track</a></li>
-        <li><a href="#">Support</a></li>
-      </ul>
-    </nav>
-    <div class="ship-now">
-      <button>Ship Now ▼</button>
-    </div>
-  </header>
+<header class="header" id="header">
+  <div class="logo">
+    <img src="logo.png" alt="DELHIVERY Logo" width="120" />
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Solutions</a></li>
+      <li><a href="#">Partner</a></li>
+      <li><a href="#">Company</a></li>
+      <li><a href="#">Track</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </nav>
+  <div class="ship-now">
+    <button>Ship Now ▼</button>
+  </div>
+</header>
 
-  <!-- ====================== Alert Banner ====================== -->
-  <div class="alert-banner">
+<div class="alert-banner">
   <div class="scrolling-text">
-    Delhivery does not require OTP or credentials for address confirmation. Our support team is reachable only via our website or app. &nbsp;|&nbsp;
-    Beware of fraudulent calls requesting payment or information. &nbsp;|&nbsp;
-    Contact support through our official channels only. &nbsp;|&nbsp;
-    Stay alert, stay safe! &nbsp;|&nbsp;
+    <span>Delhivery does not require OTP or credentials for address confirmation... &nbsp;|&nbsp;</span>
+    <span>Delhivery does not require OTP or credentials for address confirmation... &nbsp;|&nbsp;</span>
   </div>
 </div>
 
-<style>
-.alert-banner {
-  background-color: #f8d7da; /* Light red background */
-  color: #721c24; /* Dark red text */
-  padding: 10px 0;
-  overflow: hidden; /* Hide overflowing text */
-  position: relative;
-  font-family: Arial, sans-serif;
-  border: 1px solid #f5c6cb;
-  border-radius: 5px;
-}
+<main>
+  <section class="hero">
+    <div class="hero-box">
+      <h1>We are India's largest fully integrated logistics services provider</h1>
+      <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
+    </div>
 
-.scrolling-text {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%; /* Start from outside the right side */
-  animation: scroll-left 20s linear infinite; /* Adjust duration as needed */
-}
+    <div class="video-background">
+      <video autoplay muted loop playsinline>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-</style>
-
-  <!-- ====================== Hero Section ====================== -->
-  <main>
-    <section class="hero">
-      <!-- Intro Text -->
-      <div class="hero-box">
-        <h1>We are India's largest fully integrated logistics services provider</h1>
-        <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
+    <div class="track-box">
+      <div class="track-tabs">
+        <button class="tab active" data-tab="track">Track order</button>
+        <button class="tab" data-tab="ship">Ship order</button>
       </div>
 
-<!-- Track Box (Tab Interface + OTP Flow) -->
-<div class="track-box">
-  <div class="track-tabs">
-    <button class="tab active" data-tab="track">Track order</button>
-    <button class="tab" data-tab="ship">Ship order</button>
-  </div>
-
-  <div id="track-content" class="tab-content">
-    <h3><strong>Track</strong> your order through</h3>
-    <div class="track-methods">
-      <button class="method active">Mobile</button>
-      <button class="method">AWB</button>
-      <button class="method">Order Id</button>
-      <button class="method">LRN</button>
-    </div>
-    <input type="text" placeholder="Enter your mobile number" class="input-field" />
-    <button class="get-otp">Get OTP</button>
-  </div>
-
-  <div id="ship-content" class="tab-content hidden">
-    <h3><strong>Ship</strong> personal courier</h3>
-    <div class="ship-tabs">
-      <button class="ship-type active" data-type="domestic">🏠 Domestic</button>
-      <button class="ship-type" data-type="international">✈️ International</button>
-    </div>
-
-    <!-- New Form with Pickup-Delivery Indicator -->
-    <div class="ship-form">
-      <div class="route-indicator">
-        <div class="circle pickup"></div>
-        <div class="dotted-line"></div>
-        <div class="circle delivery"></div>
+      <div id="track-content" class="tab-content">
+        <h3><strong>Track</strong> your order through</h3>
+        <div class="track-methods">
+          <button class="method active">Mobile</button>
+          <button class="method">AWB</button>
+          <button class="method">Order Id</button>
+          <button class="method">LRN</button>
+        </div>
+        <input type="text" placeholder="Enter your mobile number" class="input-field" />
+        <button class="get-otp">Get OTP</button>
       </div>
-      <div class="form-fields">
-        <input type="text" placeholder="Enter pickup pin code" class="input-field" />
-        <input type="text" placeholder="Enter delivery pin code" class="input-field" />
+
+      <div id="ship-content" class="tab-content hidden">
+        <h3><strong>Ship</strong> personal courier</h3>
+        <div class="ship-tabs">
+          <button class="ship-type active" data-type="domestic">🏠 Domestic</button>
+          <button class="ship-type" data-type="international">✈️ International</button>
+        </div>
+        <div class="ship-form">
+          <div class="route-indicator">
+            <div class="circle pickup"></div>
+            <div class="dotted-line"></div>
+            <div class="circle delivery"></div>
+          </div>
+          <div class="form-fields">
+            <input type="text" placeholder="Enter pickup pin code" class="input-field" />
+            <input type="text" placeholder="Enter delivery pin code" class="input-field" />
+          </div>
+        </div>
+        <button class="get-otp">Get OTP & Ship Now</button>
+        <p><a href="#">Sign up to ship as a business here</a></p>
+      </div>
+
+      <div class="track-footer">
+        <p>Live tracking updates & extra support on our App</p>
+        <div class="app-buttons">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" />
+        </div>
       </div>
     </div>
+  </section>
 
-    <button class="get-otp">Get OTP & Ship Now</button>
-    <p><a href="#">Sign up to ship as a business here</a></p>
-  </div>
+  <section class="services">
+    <div class="vertical-line"></div>
+    <h2 class="services-title">OUR SERVICES</h2>
+    <p class="services-content">Our team will take your portfolio to the next new level</p>
+    <div class="service-icons">
+      <div class="service-item"><i>&#x1F4DC;</i><h3>NFTs</h3><p>We specialize in exclusive NFT collections.</p></div>
+      <div class="service-item"><i>&#x1F4A1;</i><h3>Collectibles</h3><p>Find rare and valuable collectibles.</p></div>
+      <div class="service-item"><i>&#x1F4F9;</i><h3>YouTube</h3><p>Engaging video content for audiences.</p></div>
+    </div>
+  </section>
+</main>
 
-  <div class="track-footer">
-    <p>Live tracking updates & extra support on our App</p>
-    <div class="app-buttons">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="Download on the App Store" />
+<footer class="footer">
+  <div class="footer-content">
+    <p>2025 3-HM. All Rights Reserved. | <a href="PrivacyPolicy/PrivacyPolicy.html">Privacy Policy</a> | <a href="TermsOfService/TermsOfService.html">Terms of Service</a></p>
+    <div class="social-media">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.reddit.com" target="_blank"><i class="fab fa-reddit-alien"></i></a>
+      <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
-</div>
+</footer>
 
-
-
-<!-- Script -->
 <script>
-  // Tab switching for Track and Ship
-  document.querySelectorAll('.track-tabs .tab').forEach(tabBtn => {
-    tabBtn.addEventListener('click', () => {
-      document.querySelectorAll('.track-tabs .tab').forEach(t => t.classList.remove('active'));
-      tabBtn.classList.add('active');
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
-      const tabName = tabBtn.dataset.tab;
-      const content = document.getElementById(tabName + '-content');
-      if (content) content.classList.remove('hidden');
-    });
-  });
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('header').classList.add('visible');
 
-  // Track method selection toggle
-  document.querySelectorAll('.track-methods .method').forEach(methodBtn => {
-    methodBtn.addEventListener('click', () => {
-      document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
-      methodBtn.classList.add('active');
-      const input = document.querySelector('#track-content .input-field');
-      switch (methodBtn.textContent.trim()) {
-        case 'Mobile':
-          input.placeholder = "Enter your mobile number";
-          break;
-        case 'AWB':
-          input.placeholder = "Enter your AWB number";
-          break;
-        case 'Order Id':
-          input.placeholder = "Enter your Order ID";
-          break;
-        case 'LRN':
-          input.placeholder = "Enter your LRN";
-          break;
-      }
-    });
-  });
+    const tabs = document.querySelectorAll(".tab");
+    const trackContent = document.getElementById("track-content");
+    const shipContent = document.getElementById("ship-content");
 
-  // Ship type toggle
-  document.querySelectorAll('.ship-tabs .ship-type').forEach(shipBtn => {
-    shipBtn.addEventListener('click', () => {
-      document.querySelectorAll('.ship-tabs .ship-type').forEach(s => s.classList.remove('active'));
-      shipBtn.classList.add('active');
-    });
-  });
-</script>
-
-
-
-    <!-- ====================== Services Section ====================== -->
-    <section class="services">
-      <div class="vertical-line"></div>
-      <h2 class="services-title">OUR SERVICES</h2>
-      <p class="services-content">
-        Our team will take your portfolio to the <br />
-        next new level
-      </p>
-
-      <!-- Icons for Different Services -->
-      <div class="service-icons">
-        <div class="service-item">
-          <i>&#x1F4DC;</i>
-          <h3>NFTs</h3>
-          <p>We specialize in exclusive NFT collections.</p>
-        </div>
-        <div class="service-item">
-          <i>&#x1F4A1;</i>
-          <h3>Collectibles</h3>
-          <p>Find rare and valuable collectibles.</p>
-        </div>
-        <div class="service-item">
-          <i>&#x1F4F9;</i>
-          <h3>YouTube</h3>
-          <p>Engaging video content for audiences.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ====================== Footer Section ====================== -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>2025 3-HM. All Rights Reserved. 
-        | <a href="PrivacyPolicy/PrivacyPolicy.html" class="footer-link">Privacy Policy</a> 
-        | <a href="TermsOfService/TermsOfService.html" class="footer-link">Terms of Service</a>
-      </p>
-
-      <!-- Social Media Links -->
-      <div class="social-media">
-        <a href="https://www.facebook.com" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.reddit.com" class="social-icon" target="_blank"><i class="fab fa-reddit-alien"></i></a>
-        <a href="https://www.youtube.com" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ====================== JavaScript Section ====================== -->
-  <script>
-    // Add 'visible' class to header after page load
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById('header').classList.add('visible');
-    });
-  </script>
-
-  <script>
-    // ================= Tab Switching (Track / Ship Orders) =================
-    function switchTab(tab) {
-      const tabs = document.querySelectorAll('.ship-tab');
-      const contents = document.querySelectorAll('.ship-content');
-
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.add('hidden'));
-
-      document.querySelector(`.ship-tab[onclick*="${tab}"]`).classList.add('active');
-      document.getElementById(tab).classList.remove('hidden');
-
-      // Sync with top tabs
-      const trackTabs = document.querySelectorAll('.track-tabs .tab');
-      trackTabs.forEach(t => t.classList.remove('active'));
-      if (tab === 'track') trackTabs[0].classList.add('active');
-      else trackTabs[1].classList.add('active');
-    }
-
-    // ================= Shipping Type Toggle (Domestic/International) =================
-    function toggleType(btn) {
-      document.querySelectorAll('.ship-type-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    // ================= Sync Top Track Tabs =================
-    document.querySelectorAll('.track-tabs .tab').forEach((tab, index) => {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.track-tabs .tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-
-        const shipContentTrack = document.getElementById('track');
-        const shipContentShip = document.getElementById('ship');
-
-        if (index === 0) {
-          shipContentTrack.classList.remove('hidden');
-          shipContentShip.classList.add('hidden');
-          document.querySelectorAll('.ship-tab').forEach(t => t.classList.remove('active'));
-          document.querySelector('.ship-tab[onclick*="track"]').classList.add('active');
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        if (tab.dataset.tab === "track") {
+          trackContent.classList.remove("hidden");
+          shipContent.classList.add("hidden");
         } else {
-          shipContentShip.classList.remove('hidden');
-          shipContentTrack.classList.add('hidden');
-          document.querySelectorAll('.ship-tab').forEach(t => t.classList.remove('active'));
-          document.querySelector('.ship-tab[onclick*="ship"]').classList.add('active');
+          shipContent.classList.remove("hidden");
+          trackContent.classList.add("hidden");
         }
       });
     });
 
-    // ================= Track Method Selection =================
-    document.querySelectorAll('.track-methods .method').forEach((btn) => {
-      btn.addEventListener('click', function () {
+    document.querySelectorAll('.track-methods .method').forEach(methodBtn => {
+      methodBtn.addEventListener('click', () => {
         document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
-        this.classList.add('active');
-        document.querySelector('.input-field').placeholder = `Enter your ${this.textContent.toLowerCase()}`;
+        methodBtn.classList.add('active');
+        const input = document.querySelector('#track-content .input-field');
+        input.placeholder = `Enter your ${methodBtn.textContent.trim().toLowerCase()}`;
       });
     });
 
-    // ================= OTP Button Handler =================
-    document.querySelector('.get-otp').addEventListener('click', function () {
-      const input = document.querySelector('.input-field');
-      const value = input.value.trim();
-      const activeMethod = document.querySelector('.track-methods .method.active').textContent;
-
-      if (!value) {
-        alert(`Please enter your ${activeMethod.toLowerCase()}`);
-      } else {
-        alert(`OTP sent to ${value}`);
-      }
+    document.querySelectorAll('.ship-tabs .ship-type').forEach(shipBtn => {
+      shipBtn.addEventListener('click', () => {
+        document.querySelectorAll('.ship-tabs .ship-type').forEach(s => s.classList.remove('active'));
+        shipBtn.classList.add('active');
+      });
     });
 
-    
-  </script>
-
-  <script>
-  const tabs = document.querySelectorAll(".tab");
-  const trackContent = document.getElementById("track-content");
-  const shipContent = document.getElementById("ship-content");
-
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-
-      if (tab.dataset.tab === "track") {
-        trackContent.classList.remove("hidden");
-        shipContent.classList.add("hidden");
-      } else {
-        shipContent.classList.remove("hidden");
-        trackContent.classList.add("hidden");
-      }
+    document.querySelectorAll('.get-otp').forEach(otpBtn => {
+      otpBtn.addEventListener('click', () => {
+        const input = otpBtn.closest('.tab-content').querySelector('.input-field');
+        const value = input ? input.value.trim() : '';
+        if (!value) {
+          alert("Please enter required information.");
+        } else {
+          alert(`OTP sent to ${value}`);
+        }
+      });
     });
   });
-
-
-  document.querySelectorAll('.ship-type').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('.ship-type').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    // Optional: Change inputs or content based on the selected shipping type
-    const type = button.getAttribute('data-type');
-    if (type === 'international') {
-      // Handle international shipping logic
-    } else {
-      // Handle domestic shipping logic
-    }
-  });
-});
-
 </script>
-
 
 </body>
 </html>
