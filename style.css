@@ -13,6 +13,34 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  background: var(--primary-color);
+  color: #000;
+  z-index: 1000;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Focus styles */
 *:focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
@@ -23,14 +51,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   background-color: var(--accent-color);
   color: var(--text-color);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 1000;
   transform: translateY(-100%);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -40,12 +68,12 @@ body {
   opacity: 1;
 }
 .logo img {
-  height: 50px;
+  height: 3.125rem;
 }
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
   padding: 0;
   margin: 0;
 }
@@ -57,9 +85,10 @@ body {
 .ship-now button {
   background-color: var(--text-color);
   color: var(--accent-color);
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 6px;
+  right: -100px;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -73,13 +102,16 @@ body {
 .alert-banner {
   background-color: #ffcc00;
   color: #000;
-  padding: 10px;
+  padding: 0.625rem;
   overflow: hidden;
   white-space: nowrap;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
   position: relative;
-  margin-top: 70px;
+  margin-top: 4.5rem;
+}
+.alert-banner[role="alert"] {
+  aria-live: polite;
 }
 .scrolling-text {
   display: inline-block;
@@ -88,7 +120,7 @@ body {
 }
 .scrolling-text span {
   display: inline-block;
-  padding-right: 50px; /* spacing between repeats */
+  padding-right: 3.125rem;
 }
 @keyframes scroll-left {
   from {
@@ -108,7 +140,7 @@ body {
   min-height: 100vh;
   background: #1f1f1f;
   text-align: center;
-  padding: 100px 20px 40px;
+  padding: 6.25rem 1.25rem 2.5rem;
   animation: fadeIn 1s ease-in both;
   box-sizing: border-box;
 }
@@ -116,20 +148,17 @@ body {
   max-width: 500px;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
-  gap: 20px;
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
   align-items: center;
-  justify-content: center;
 }
 .hero-box h1 {
   font-family: 'Merriweather', serif;
-  font-size: clamp(28px, 6vw, 42px);
-  padding: 20px;
+  font-size: clamp(1.75rem, 6vw, 2.625rem);
+  padding: 1.25rem;
   border: 1px solid white;
-  display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   transition: transform 0.3s;
 }
 .hero-box h1:hover,
@@ -138,38 +167,54 @@ body {
 }
 .tagline {
   color: var(--primary-color);
-  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+/* Video Background Fix */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+  background-color: #000;
+}
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Track Box */
 .track-box {
   max-width: 450px;
   width: 90%;
-  margin: 40px auto;
+  margin: 2.5rem auto;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   color: #000;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Arial', sans-serif;
-  box-sizing: border-box;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.15);
   position: relative;
-  z-index: 1; /* Above video */
+  z-index: 1;
+  box-sizing: border-box;
 }
 
+/* Tabs */
 .track-tabs,
 .ship-tabs {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.625rem;
   margin-bottom: 1rem;
   border-radius: 999px;
   background-color: #f4f4f4;
   padding: 0.5rem;
   list-style: none;
-  border-bottom: 1px solid #ddd; /* for track-tabs */
+  border-bottom: 1px solid #ddd;
 }
-
 .track-tabs .tab,
 .ship-tabs .ship-type {
   flex: 1;
@@ -184,21 +229,19 @@ body {
   color: #555;
   text-align: center;
 }
-
 .track-tabs .tab:hover,
-.track-tabs .tab:focus-visible,
 .ship-tabs .ship-type:hover,
+.track-tabs .tab:focus-visible,
 .ship-tabs .ship-type:focus-visible {
   background-color: var(--primary-color);
   color: #fff;
 }
-
 .track-tabs .tab.active,
 .ship-tabs .ship-type.active {
   font-weight: bold;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #c00;
   background-color: #fff;
-  color: red;
+  color: #c00;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -207,39 +250,33 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 0;
 }
 .tab-content.hidden {
   display: none;
 }
 
-/* Input and Button */
+/* Input & Button */
 .input-field {
   width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
   border: 1px solid #ccc;
   font-size: 1rem;
-  box-sizing: border-box;
   margin-bottom: 1rem;
-  display: block;
 }
-
 .get-otp {
-  display: block;
   width: 100%;
-  padding: 12px;
+  padding: 0.75rem;
   background-color: #000;
   color: #fff;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
-
 .get-otp:hover,
 .get-otp:focus-visible {
   background-color: var(--primary-color);
@@ -248,38 +285,27 @@ body {
 /* Track Methods */
 .track-methods {
   display: flex;
-  gap: 10px;
-  margin: 15px 0;
+  gap: 0.625rem;
+  margin: 0.9375rem 0;
 }
-
 .method {
   flex: 1;
-  padding: 8px;
+  padding: 0.5rem;
   background: #eee;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
   color: #000;
+  transition: background-color 0.3s, color 0.3s;
 }
-
 .method:hover,
 .method:focus-visible {
   background: var(--primary-color);
   color: #fff;
 }
-
 .method.active {
   background: var(--accent-color);
   color: #fff;
-}
-
-/* Ship Form */
-.ship-form {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-top: 20px;
 }
 
 /* Route Indicator */
@@ -287,98 +313,84 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 0.625rem;
 }
-
 .circle {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   border-radius: 50%;
   background-color: #fff;
   border: 2px solid #333;
   position: relative;
 }
-
 .dotted-line {
   width: 2px;
-  height: 40px;
+  height: 2.5rem;
   border-left: 2px dotted #333;
-  margin: 6px 0;
+  margin: 0.375rem 0;
 }
-
 .delivery::after {
-  content: '\1F4CD'; /* 📍 */
-  font-size: 16px;
+  content: '\1F4CD';
+  font-size: 1rem;
   position: absolute;
-  top: -3px;
-  left: -2px;
+  top: -0.1875rem;
+  left: -0.125rem;
 }
 
 /* App Buttons */
 .app-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 0.625rem;
+  margin-top: 0.625rem;
 }
-
 .app-buttons img {
-  height: 40px;
+  height: 2.5rem;
   cursor: pointer;
-  margin: 0 5px;
 }
 
 /* Services */
 .services {
-  padding: 50px 20px;
+  padding: 3.125rem 1.25rem;
   text-align: center;
+  margin-top: 2.5rem;
   position: relative;
-  margin-top: 40px;
 }
-
 .services-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   color: var(--primary-color);
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
-
 .services-content {
   font-family: 'Merriweather', serif;
-  font-size: 36px;
-  margin-bottom: 30px;
+  font-size: 2.25rem;
+  margin-bottom: 1.875rem;
 }
-
 .service-icons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 1.875rem;
 }
-
 .service-item {
-  max-width: 200px;
-  padding: 20px;
-  border-radius: 10px;
+  max-width: 12.5rem;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
   background-color: #2c2c2c;
-  transition: transform 0.3s;
-  cursor: default;
   color: #fff;
+  transition: transform 0.3s;
 }
-
 .service-item:hover,
 .service-item:focus-within {
   transform: translateY(-5px);
 }
-
 .service-item i {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 0.625rem;
 }
-
-/* Vertical Line */
 .vertical-line {
-  height: 50px;
-  width: 3px;
+  height: 3.125rem;
+  width: 0.1875rem;
   background-color: var(--primary-color);
   position: absolute;
   top: 0;
@@ -391,70 +403,80 @@ body {
   text-align: center;
   background-color: #333;
   color: white;
-  padding: 20px;
-  font-size: 14px;
+  padding: 1.25rem;
+  font-size: 0.875rem;
 }
-
 .footer-link {
   color: inherit;
   text-decoration: none;
-  margin: 0 8px;
+  margin: 0 0.5rem;
 }
-
 .footer-link:hover,
 .footer-link:focus-visible {
   text-decoration: underline;
 }
-
 .social-media {
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
-
 .social-icon {
-  font-size: 24px;
-  margin: 0 10px;
+  font-size: 1.5rem;
+  margin: 0 0.625rem;
   color: white;
-  transition: color 0.3s ease;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
-
 .social-icon:hover,
 .social-icon:focus-visible {
   color: var(--primary-color);
 }
 
-/* Video Background */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.video-background video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Responsive */
+/* Responsive Adjustments */
 @media (max-width: 600px) {
   .track-box {
     padding: 1.5rem 1rem;
   }
   .tab,
   .ship-tabs .ship-type {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
   }
   .get-otp {
-    font-size: 0.9rem;
-    padding: 10px;
+    font-size: 0.875rem;
+    padding: 0.625rem;
   }
   .hero-box h1 {
-    font-size: clamp(24px, 8vw, 32px);
+    font-size: clamp(1.5rem, 8vw, 2rem);
   }
 }
 
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  min-height: 100vh; /* Makes sure it takes full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -1;
+}

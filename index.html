@@ -9,7 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
   <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     .hidden { display: none; }
+
     .alert-banner {
       background-color: #f8d7da;
       color: #721c24;
@@ -20,15 +27,65 @@
       border: 1px solid #f5c6cb;
       border-radius: 5px;
     }
+
     .scrolling-text {
       display: inline-block;
       white-space: nowrap;
       padding-left: 100%;
       animation: scroll-left 20s linear infinite;
     }
+
     @keyframes scroll-left {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
+    }
+
+    /* === ADDED: Background Video Styling === */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+
+    .hero-box {
+      padding: 4rem 2rem;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .track-box {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .tab-content .input-field {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .get-otp {
+      background: #333;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .get-otp:hover {
+      background-color: #555;
     }
   </style>
 </head>
@@ -62,16 +119,18 @@
 
 <main>
   <section class="hero">
-    <div class="hero-box">
-      <h1>We are India's largest fully integrated logistics services provider</h1>
-      <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
-    </div>
-
+    <!-- Background video section -->
     <div class="video-background">
       <video autoplay muted loop playsinline>
         <source src="your-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+    </div>
+
+    <!-- Foreground content -->
+    <div class="hero-box">
+      <h1>We are India's largest fully integrated logistics services provider</h1>
+      <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
     </div>
 
     <div class="track-box">
