@@ -782,7 +782,6 @@ body {
 </style>
 
 
-
 .services {
   padding: 60px 40px;
   background-color: #f7f8fa;
@@ -794,7 +793,7 @@ body {
   max-width: 1200px;
   margin: 0 auto 40px auto;
   font-size: 28px;
-  color: #f0eaea;
+  color: #333333; /* better contrast */
   font-weight: 600;
 }
 
@@ -856,4 +855,90 @@ body {
 
 .service-card a:hover {
   color: #d62828;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .services {
+    padding: 40px 20px;
+  }
+  
+  .services-header h2 {
+    font-size: 24px;
+  }
+  
+  .service-card img {
+    height: 150px;
+  }
+  
+  .service-card h3 {
+    font-size: 16px;
+  }
+  
+  .service-card p, 
+  .service-card a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 30px 15px;
+  }
+  
+  .services-header h2 {
+    font-size: 20px;
+  }
+  
+  .service-card img {
+    height: 120px;
+  }
+  
+  .service-card h3 {
+    font-size: 14px;
+  }
+  
+  .service-card p, 
+  .service-card a {
+    font-size: 12px;
+  }
+}
+
+
+
+/* Refined and aligned images */
+.service-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;          /* Maintains consistent image ratio */
+  object-fit: cover;
+  object-position: center;       /* Center image crop */
+  border-radius: 8px 8px 0 0;   /* Rounded top corners matching card */
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* subtle inner shadow for depth */
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover img {
+  transform: scale(1.05);        /* Slight zoom on hover */
+}
+
+/* Clearer header */
+.services-header h2 {
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  font-size: 32px;
+  color: #d8d4d4;                /* Darker for higher contrast */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid #d62828;
+  padding-bottom: 10px;
+  max-width: fit-content;       /* width fits the text */
+}
+
+.services-header span {
+  color: #d62828;               /* Highlight span in bold red */
+  font-weight: 700;
+  border: none;
+  padding-bottom: 2px;
 }
