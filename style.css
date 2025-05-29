@@ -68,8 +68,11 @@ body {
   opacity: 1;
 }
 .logo img {
-  height: 3.125rem;
+  max-width: 120px;
+  height: auto;
+  display: block;
 }
+
 .nav ul {
   list-style: none;
   display: flex;
@@ -87,7 +90,7 @@ body {
   color: var(--accent-color);
   padding: 0.5rem 1rem;
   border: none;
-  right: -100px;
+  margin-right: 50px;
   border-radius: 0.375rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
