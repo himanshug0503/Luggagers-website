@@ -389,13 +389,26 @@
     });
 
     document.querySelectorAll('.track-methods .method').forEach(methodBtn => {
-      methodBtn.addEventListener('click', () => {
-        document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
-        methodBtn.classList.add('active');
-        const input = document.querySelector('#track-content .input-field');
-        input.placeholder = `Enter your ${methodBtn.textContent.trim().toLowerCase()}`;
-      });
-    });
+  methodBtn.addEventListener('click', () => {
+    document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
+    methodBtn.classList.add('active');
+
+    const method = methodBtn.textContent.trim();
+    const input = document.querySelector('#track-content .input-field');
+    const button = document.querySelector('#track-content .get-otp');
+
+    // Update placeholder
+    input.placeholder = `Enter your ${method.toUpperCase()}`;
+
+    // Update button label
+    if (method === 'Mobile') {
+      button.textContent = 'Get OTP';
+    } else {
+      button.textContent = 'Track Order';
+    }
+  });
+});
+
 
     document.querySelectorAll('.ship-tabs .ship-type').forEach(shipBtn => {
       shipBtn.addEventListener('click', () => {
