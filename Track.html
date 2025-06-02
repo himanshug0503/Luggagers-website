@@ -2,24 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luggagers Replica</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External Styles -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather&family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style2.css" />
 
   <style>
-    body, html {
+    /* Reset */
+    body,
+    html {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    .hidden { display: none; }
+    .hidden {
+      display: none;
+    }
 
+    /* Alert banner */
     .alert-banner {
       background-color: #f8d7da;
       color: #721c24;
@@ -39,11 +50,15 @@
     }
 
     @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
-    /* === ADDED: Background Video Styling === */
+    /* Background Video Styling */
     .hero {
       position: relative;
       overflow: hidden;
@@ -53,8 +68,8 @@
     .hero-box {
       padding: 4rem 2rem;
       text-align: center;
-      z-index: 1;
       position: relative;
+      z-index: 1;
     }
 
     .track-box {
@@ -66,7 +81,7 @@
       margin: 2rem auto;
       position: relative;
       z-index: 1;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .tab-content .input-field {
@@ -85,6 +100,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     .get-otp:hover {
@@ -113,13 +129,6 @@
   </div>
 </header>
 
-<div class="alert-banner">
-  <div class="scrolling-text">
-    <span>Delhivery does not require OTP or credentials for address confirmation... &nbsp;|&nbsp;</span>
-    <span>Delhivery does not require OTP or credentials for address confirmation... &nbsp;|&nbsp;</span>
-  </div>
-</div>
-
 <main>
   <section class="hero">
     <!-- Background video section -->
@@ -130,60 +139,67 @@
       </video>
     </div>
 
-    <!-- Foreground content -->
-    <div class="hero-box">
-      <h1>We are India's largest fully integrated logistics services provider</h1>
-      <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
-    </div>
-
-    <div class="track-box">
-      <div class="track-tabs">
-        <button class="tab active" data-tab="track">Track order</button>
-        <button class="tab" data-tab="ship">Ship order</button>
+    <!-- Foreground content with text and form -->
+    <div class="hero-content">
+      <!-- Left promo text -->
+      <div class="promo-text">
+        <h2>Documents, Packages, and Everything Else</h2>
+        <p><strong>Courier Anything, Anywhere!</strong></p>
+        <p>Get <strong>25% Off</strong> with code <code>DLV25</code></p>
+        <p>Download the Delhivery Direct App</p>
       </div>
 
-      <div id="track-content" class="tab-content">
-        <h3><strong>Track</strong> your order through</h3>
-        <div class="track-methods">
-          <button class="method active">Mobile</button>
-          <button class="method">AWB</button>
-          <button class="method">Order Id</button>
-          <button class="method">LRN</button>
+      <!-- Right side tracking box -->
+      <div class="track-box">
+        <div class="track-tabs">
+          <button class="tab active" data-tab="track">Track order</button>
+          <button class="tab" data-tab="ship">Ship order</button>
         </div>
-        <input type="text" placeholder="Enter your mobile number" class="input-field" />
-        <button class="get-otp">Get OTP</button>
-      </div>
 
-      <div id="ship-content" class="tab-content hidden">
-        <h3><strong>Ship</strong> personal courier</h3>
-        <div class="ship-tabs">
-          <button class="ship-type active" data-type="domestic">🏠 Domestic</button>
-          <button class="ship-type" data-type="international">✈️ International</button>
-        </div>
-        <div class="ship-form">
-          <div class="route-indicator">
-            <div class="circle pickup"></div>
-            <div class="dotted-line"></div>
-            <div class="circle delivery"></div>
+        <div id="track-content" class="tab-content">
+          <h3><strong>Track</strong> your order through</h3>
+          <div class="track-methods">
+            <button class="method active">Mobile</button>
+            <button class="method">AWB</button>
+            <button class="method">Order Id</button>
+            <button class="method">LRN</button>
           </div>
-          <div class="form-fields">
-            <input type="text" placeholder="Enter pickup pin code" class="input-field" />
-            <input type="text" placeholder="Enter delivery pin code" class="input-field" />
-          </div>
+          <input type="text" placeholder="Enter your mobile number" class="input-field" />
+          <button class="get-otp">Get OTP</button>
         </div>
-        <button class="get-otp">Get OTP & Ship Now</button>
-        <p><a href="#">Sign up to ship as a business here</a></p>
-      </div>
 
-      <div class="track-footer">
-        <p>Live tracking updates & extra support on our App</p>
-        <div class="app-buttons">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" />
+        <div id="ship-content" class="tab-content hidden">
+          <h3><strong>Ship</strong> personal courier</h3>
+          <div class="ship-tabs">
+            <button class="ship-type active" data-type="domestic">🏠 Domestic</button>
+            <button class="ship-type" data-type="international">✈️ International</button>
+          </div>
+          <div class="ship-form">
+            <div class="route-indicator">
+              <div class="circle pickup"></div>
+              <div class="dotted-line"></div>
+              <div class="circle delivery"></div>
+            </div>
+            <div class="form-fields">
+              <input type="text" placeholder="Enter pickup pin code" class="input-field" />
+              <input type="text" placeholder="Enter delivery pin code" class="input-field" />
+            </div>
+          </div>
+          <button class="get-otp">Get OTP & Ship Now</button>
+          <p><a href="#">Sign up to ship as a business here</a></p>
+        </div>
+
+        <div class="track-footer">
+          <p>Live tracking updates & extra support on our App</p>
+          <div class="app-buttons">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" />
+          </div>
         </div>
       </div>
     </div>
   </section>
+</main>
 
  <section class="services">
   <div class="vertical-line"></div>
