@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luggagers Replica</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .hidden { display: none; }
+
+    .alert-banner {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      font-family: Arial, sans-serif;
+      border: 1px solid #f5c6cb;
+      border-radius: 5px;
+    }
+
+    .scrolling-text {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* === ADDED: Background Video Styling === */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+
+    .hero-box {
+      padding: 4rem 2rem;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    .track-box {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .tab-content .input-field {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .get-otp {
+      background: #333;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .get-otp:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="logo">
+    <img src="logo.png" alt="DELHIVERY Logo" width="120" />
+  </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Solutions</a></li>
+      <li><a href="#">Partner</a></li>
+      <li><a href="#">Company</a></li>
+      <li><a href="#">Track</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </nav>
+  <div class="ship-now">
+    <button>Ship Now ▼</button>
+  </div>
+</header>
+
+<div class="alert-banner">
+  <div class="scrolling-text">
+    <span>Delhivery does not require OTP or credentials for address confirmation... &nbsp;|&nbsp;</span>
+    <span>Delhivery does not require OTP or credentials for address confirmation... &nbsp;|&nbsp;</span>
+  </div>
+</div>
+
+<main>
+  <section class="hero">
+    <!-- Background video section -->
+    <div class="video-background">
+      <video autoplay muted loop playsinline>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Foreground content -->
+    <div class="hero-box">
+      <h1>We are India's largest fully integrated logistics services provider</h1>
+      <p class="tagline">CRYPTO - NFT - YOUTUBE - PHOTOGRAPHY</p>
+    </div>
+
+    <div class="track-box">
+      <div class="track-tabs">
+        <button class="tab active" data-tab="track">Track order</button>
+        <button class="tab" data-tab="ship">Ship order</button>
+      </div>
+
+      <div id="track-content" class="tab-content">
+        <h3><strong>Track</strong> your order through</h3>
+        <div class="track-methods">
+          <button class="method active">Mobile</button>
+          <button class="method">AWB</button>
+          <button class="method">Order Id</button>
+          <button class="method">LRN</button>
+        </div>
+        <input type="text" placeholder="Enter your mobile number" class="input-field" />
+        <button class="get-otp">Get OTP</button>
+      </div>
+
+      <div id="ship-content" class="tab-content hidden">
+        <h3><strong>Ship</strong> personal courier</h3>
+        <div class="ship-tabs">
+          <button class="ship-type active" data-type="domestic">🏠 Domestic</button>
+          <button class="ship-type" data-type="international">✈️ International</button>
+        </div>
+        <div class="ship-form">
+          <div class="route-indicator">
+            <div class="circle pickup"></div>
+            <div class="dotted-line"></div>
+            <div class="circle delivery"></div>
+          </div>
+          <div class="form-fields">
+            <input type="text" placeholder="Enter pickup pin code" class="input-field" />
+            <input type="text" placeholder="Enter delivery pin code" class="input-field" />
+          </div>
+        </div>
+        <button class="get-otp">Get OTP & Ship Now</button>
+        <p><a href="#">Sign up to ship as a business here</a></p>
+      </div>
+
+      <div class="track-footer">
+        <p>Live tracking updates & extra support on our App</p>
+        <div class="app-buttons">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section class="services">
+  <div class="vertical-line"></div>
+  <h2 class="services-title">Delhivery’s <span class="highlight">suite of solutions for</span></h2>
+  
+  <div class="service-icons">
+    <div class="service-item">
+      <i class="icon">&#x1F5FA;</i> <!-- Map/India icon substitute -->
+      <h3>D2C Brands</h3>
+      <p>
+        We provide an integrated logistics solution built on Express Parcel, Cross Border, Warehousing, Freight and Software value added services that help brands deliver faster and provide a superior experience.
+      </p>
+      <a href="#" class="learn-more">Know More →</a>
+    </div>
+    
+    <div class="service-item">
+      <i class="icon">&#x1F464;</i> <!-- User icon substitute -->
+      <h3>Personal Courier</h3>
+      <p>
+        India’s only online courier solution for all your personal shipping needs. Send from your location to anywhere in the country and internationally with free doorstep pickup and real-time tracking through our app.
+      </p>
+      <a href="#" class="learn-more">Know More →</a>
+    </div>
+    
+    <div class="service-item">
+      <i class="icon">&#x1F3E2;</i> <!-- Building icon substitute -->
+      <h3>B2B Enterprises</h3>
+      <p>
+        We provide customised solutions to serve your factory-to-retailer supply chain end-to-end using our integrated warehousing, technology capabilities and logistics network that improve reliability and reduce cost.
+      </p>
+      <a href="#" class="learn-more">Know More →</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="services">
+  <div class="services-header">
+    <h2><span>Services</span> that power our solutions ecosystem</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="images/bike.png" alt="Express Parcel Service">
+      <h3>Express Parcel Service</h3>
+      <p>Send shipments across India for parcels across categories including heavy goods. Get value added services like RTO reduction tools, door-step inspection and tracking.</p>
+      <a href="#">Know More →</a>
+    </div>
+    <div class="service-card">
+      <img src="images/warehouse.png" alt="Warehousing">
+      <h3>Warehousing</h3>
+      <p>We store inventory across highly optimised locations across the country to fulfil orders originating across both B2C and B2B channels of sale.</p>
+      <a href="#">Know More →</a>
+    </div>
+    <div class="service-card">
+      <img src="images/truck.png" alt="Part Truckload Freight">
+      <h3>Part Truckload Freight (PTL)</h3>
+      <p>Join one of the largest Express PTL networks in India. Get door-to-door and hub-to-hub delivery with additions such as multi-modal freight and client dashboard.</p>
+      <a href="#">Know More →</a>
+    </div>
+    <div class="service-card">
+      <img src="images/boat.png" alt="Full Truckload Freight">
+      <h3>Full Truckload Freight (FTL)</h3>
+      <p>Move high-volume and high-capacity orders faster with our full Truckload Freight logistics and work with our network of professional Truckload partners as well as our own fleet.</p>
+      <a href="#">Know More →</a>
+    </div>
+    <div class="service-card">
+      <img src="images/road.png" alt="Cross Border Service">
+      <h3>Cross Border Service</h3>
+      <p>Get door-to-door, port-to-port Express Parcel and Freight services from India to 220+ countries. Our strategic partners include FedEx and Aramex.</p>
+      <a href="#">Know More →</a>
+    </div>
+    <div class="service-card">
+      <img src="images/eh.png" alt="Data Intelligence">
+      <h3>Data Intelligence</h3>
+      <p>Power your business with India’s most accurate location intelligence stack. Improve delivery success and gain deep insights about user generated addresses and RTOs.</p>
+      <a href="#">Know More →</a>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+    <div class="container">
+        <div class="title">
+            Experience the <strong>operating system</strong> for commerce in India
+        </div>
+        <div class="subtitle">
+            Sign up now to start shipping with Delhivery
+        </div>
+        <div class="buttons">
+            <a href="#" class="btn">Personal Courier &#8594;</a>
+            <a href="#" class="btn">Business Shipments &#8594;</a>
+        </div>
+    </div>
+</section>
+
+
+</main>
+
+<footer class="footer">
+  <div class="footer-logo-section">
+    <img src="logo.png" alt="Company Logo" class="footer-logo" />
+    <p class="footer-cert">ISO 9001:2015, ISO 27001:2022 Certified Company<br>CIN: L53000DL2011PLC221233</p>
+  </div>
+
+  <div class="footer-top">
+    <div class="footer-column">
+      <h3>SERVICES</h3>
+      <ul>
+        <li><a href="#">Express Parcel</a></li>
+        <li><a href="#">Warehousing</a></li>
+        <li><a href="#">Part Truckload</a></li>
+        <li><a href="#">Full Truckload</a></li>
+        <li><a href="#">Cross Border</a></li>
+        <li><a href="#">Data Intelligence</a></li>
+        <li><a href="#">Software Platform</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>SOLUTIONS</h3>
+      <ul>
+        <li><a href="#">D2C Brands</a></li>
+        <li><a href="#">Personal Courier</a></li>
+        <li><a href="#">B2B Enterprises</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>PARTNERS</h3>
+      <ul>
+        <li><a href="#">Franchise Opportunities</a></li>
+        <li><a href="#">Delivery Partner</a></li>
+        <li><a href="#">Fleet Owner</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>COMPANY</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Governance</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">ODR Portal</a></li>
+        <li><a href="#">Press Release</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>GET IN TOUCH</h3>
+      <ul>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Raise a Query</a></li>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Rate Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>POLICIES</h3>
+      <ul>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Fraud Disclaimer</a></li>
+        <li><a href="#">ONDC Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-note">
+      <p><strong>Information Security Policy:</strong> We safeguard the confidentiality, integrity, and availability of all information assets.</p>
+      <p><strong>Disclaimer:</strong> Operational metrics listed are as of August 04, 2023.</p>
+    </div>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('header').classList.add('visible');
+
+    const tabs = document.querySelectorAll(".tab");
+    const trackContent = document.getElementById("track-content");
+    const shipContent = document.getElementById("ship-content");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        if (tab.dataset.tab === "track") {
+          trackContent.classList.remove("hidden");
+          shipContent.classList.add("hidden");
+        } else {
+          shipContent.classList.remove("hidden");
+          trackContent.classList.add("hidden");
+        }
+      });
+    });
+
+    document.querySelectorAll('.track-methods .method').forEach(methodBtn => {
+  methodBtn.addEventListener('click', () => {
+    document.querySelectorAll('.track-methods .method').forEach(m => m.classList.remove('active'));
+    methodBtn.classList.add('active');
+
+    const method = methodBtn.textContent.trim();
+    const input = document.querySelector('#track-content .input-field');
+    const button = document.querySelector('#track-content .get-otp');
+
+    // Update placeholder
+    input.placeholder = `Enter your ${method.toUpperCase()}`;
+
+    // Update button label
+    if (method === 'Mobile') {
+      button.textContent = 'Get OTP';
+    } else {
+      button.textContent = 'Track Order';
+    }
+  });
+});
+
+
+    document.querySelectorAll('.ship-tabs .ship-type').forEach(shipBtn => {
+      shipBtn.addEventListener('click', () => {
+        document.querySelectorAll('.ship-tabs .ship-type').forEach(s => s.classList.remove('active'));
+        shipBtn.classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.get-otp').forEach(otpBtn => {
+      otpBtn.addEventListener('click', () => {
+        const input = otpBtn.closest('.tab-content').querySelector('.input-field');
+        const value = input ? input.value.trim() : '';
+        if (!value) {
+          alert("Please enter required information.");
+        } else {
+          alert(`OTP sent to ${value}`);
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
